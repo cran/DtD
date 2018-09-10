@@ -1,7 +1,7 @@
 Package: DtD
 Type: Package
 Title: Distance to Default
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(person("Benjamin", "Christoffersen", 
                     email = "boennecd@gmail.com", 
                     role = c("cre", "aut")),
@@ -22,8 +22,8 @@ VignetteBuilder: knitr
 RoxygenNote: 6.0.1
 SystemRequirements: C++11
 NeedsCompilation: yes
-Packaged: 2018-05-01 21:34:24 UTC; User
+Packaged: 2018-09-10 21:21:23 UTC; User
 Author: Benjamin Christoffersen [cre, aut],
   R-core [cph]
 Repository: CRAN
-Date/Publication: 2018-05-02 19:50:09 UTC
+Date/Publication: 2018-09-10 22:00:06 UTC
