@@ -1,6 +1,6 @@
-3bd57e760e6ce5f31dafc79ab268c7d6 *DESCRIPTION
+fc54cc239167745366ddf333c4d3d481 *DESCRIPTION
 17a1e86c7192a3a35567c97d3aac19f8 *NAMESPACE
-12a9eac4f5309c72a7f204ed07ea6975 *NEWS.md
+99c0f6aaed4550f78a705e686cca97bf *NEWS.md
 94670ee2a156354faa1cc57ab131b3c0 *R/BS_call.R
 d950a7a28f8955672321c9ce8be8ec5a *R/BS_fit.R
 ec1d47d22558f2b21112f64bdf66e11b *R/BS_sim.R
@@ -10,10 +10,10 @@ b62b83078f072e8d43920ece974eb18a *R/logLike.R
 4e7b058a91826b3ee6006a3325634632 *R/rolling.R
 39a72c40ee0550ec388cccc6f7ad8568 *R/roxygen_tags.R
 ae48f5fb3ebbbce4d2b3dca5eaf7b6bd *R/utils.R
-c935c5cc60afc7ef750f5349af16966c *build/vignette.rds
+7088327b5546f0b9630aa6f0d63d881e *build/vignette.rds
 7e2b5d7e22857bc6163c8dfe251e88aa *inst/doc/Distance-to-default.R
-9825cfd4bc2d0a4537ee933e720ceab6 *inst/doc/Distance-to-default.Rnw
-2a1e45118eca714f5cc45c5983755f71 *inst/doc/Distance-to-default.pdf
+34caa5ab347253438c9c611a1c2f09d4 *inst/doc/Distance-to-default.Rnw
+da1229a1d8096c8b0c30cc40096c0940 *inst/doc/Distance-to-default.pdf
 52ed92247f30e4749225b22440d1ca68 *man/BS_fit.Rd
 761390d3889cd44194badeba0bd34cc5 *man/BS_fit_rolling.Rd
 c483da4b24137ce21ec9a1b4a1e580fd *man/BS_sim.Rd
@@ -24,7 +24,7 @@ c21604b530295defd4ac92b19581a937 *src/Makevars.win
 73c8cc1a517308f485a015103cd529f8 *src/RcppExports.cpp
 b55042849c3e3d15827d1586a4c3d9b6 *src/bs.cpp
 b23559a441d5dfef9f67a156ea10e286 *src/bs.h
-7d23f481a273d8f579f66eefc680f035 *src/est_iterative.cpp
+388e7b939f2ceef0be1a5766773a1699 *src/est_iterative.cpp
 b1a57cd11a42cd564239e0263aec5975 *src/get_underlying.cpp
 39f46918f0f174f128f13a8b1ef11514 *src/mle.cpp
 357266badf22088a9e06759f54651bba *src/optim.cpp
@@ -41,5 +41,5 @@ f16aea22985cf1f179cb00717346a5bb *tests/testthat/test_logLike.R
 2e0fd584b576fad8917cc2c4782d4a8d *tests/testthat/test_mle.R
 69832169c516bcba4f06fbe156ec1979 *tests/testthat/test_rolling.R
 ead5314217a136d401863c8268c8f8d2 *tests/testthat/test_sim.R
-9825cfd4bc2d0a4537ee933e720ceab6 *vignettes/Distance-to-default.Rnw
+34caa5ab347253438c9c611a1c2f09d4 *vignettes/Distance-to-default.Rnw
 cab44406278ea5f3c10205eff827feb0 *vignettes/Distance-to-default.bib

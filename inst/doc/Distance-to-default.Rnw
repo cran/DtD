@@ -51,7 +51,17 @@ d_1 &= \frac{\log(V_t) - \log{D_t} + \Lpar{r + \frac{1}{2}\sigma^2}T}{\sigma\sqr
 S_t &= C(V_t, D_t, T, \sigma, r) \label{eq:stock_relation}
 \end{align}%
 %
-where $C$ is a European call option price, $T$ is the time to maturity, $D_t$ is the debt to due at time $T + t$, and $r$ is the risk free rate. Common choices tend to be $T = 1$ year and $D_t$ as the short term debt plus half of the long term debt. $d_1$ in equation~\eqref{eq:dd} is the so-called distance-to-default which is the name of the package. It is a very good predictor of default risk despite it's simplicity \citep[see e.g.,][]{Bharath08}.
+where $C$ is a European call option price, $T$ is the time to maturity, $D_t$ is the debt to due at time $T + t$, and $r$ is the risk free rate. Common choices tend to be $T = 1$ year and $D_t$ is the short term debt plus half of the long term debt.
+The distance-to-default is%
+%
+$$
+DD_t = \frac{\log(V_t) - \log(D_t) + (\mu - \sigma^2 / 2)T}{\sigma \sqrt T}
+$$%
+%
+It is a very good predictor of default risk despite it's simplicity
+\citep[see e.g.,][]{Bharath08}. However, to compute it we would need the value
+of the underlying asset, the drift, and volatility. This package package provides
+methods to estimate these.
 
 Equation~\eqref{eq:stock_relation} can be computed with the \verb|BS_call| function. Further, the \verb|get_underlying| function can be used to invert call option price in equation~\eqref{eq:stock_relation}
 
@@ -112,11 +122,14 @@ The iterative methods is as follows. Start with an initial guess of the volatili
   \item compute the underlying asset values $V_k = C^{-1}(S_k, \hat{\sigma}^{(i - 1)})$ where $C^{-1}$ is the inverse of the call option price in equation~\eqref{eq:stock_relation} and implicitly depend on $D_t$, $T$, and $r$. Then compute the $\log$ returns $x_k = \log V_k - \log V_{k-1}$. \label{enum:it_first_step}
 %
   \item compute the maximum likelihood estimate as if we observed the $\log$ returns. I.e. compute
-  $$\hat{\sigma}^{(i)} = \frac{1}{n}\sum_{k = 1}^n \frac{x_k^2}{dt_k} -
-    \left(\frac{1}{n}\sum_{k =1}^n\frac{x_k}{\sqrt{dt_k}} \right )^2
-    ,\qquad \hat{\mu}^{(i)} = \frac{1}{n}\sum_{k=1}^n \frac{x_k}{dt_k}
-    + \frac{\hat{\sigma}^{(i)2}}{2}$$
-    where we have extended to unequal gaps, $dt_k$.
+  \begin{align*}
+    \tilde\mu &= \frac{\sum_{k=1}^nx_k}{\sum_{k = 1}^n\sqrt{dt_k}} =
+         \frac{\log V_n - \log V_0}{\sum_{k = 1}^n\sqrt{dt_k}} \\
+    \left(\hat\sigma^{(i)}\right)^2 &= \frac{1}{n}\sum_{k = 1}^n
+        \left(\frac{x_k}{\sqrt{dt_k}} - \sqrt{dt_k}\tilde\mu \right)^2 \\
+    \hat\mu &= \tilde\mu + \frac{\left(\hat\sigma^{(i)}\right)^2}{2}
+  \end{align*}
+    where we have extended the model to unequal gaps each with length $dt_k$.
 %
   \item Repeat step~\ref{enum:it_first_step} if $(\hat{\sigma}^{(i)}, \hat{\mu}^{(i)})$ is far from $(\hat{\sigma}^{(i - 1)}, \hat{\mu}^{(i - 1)})$. Otherwise stop.
 \end{enumerate}
